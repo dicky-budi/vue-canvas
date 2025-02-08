@@ -2,12 +2,23 @@
   <section class="canvas relative">
     <v-stage
       ref="stage"
+      @mousedown="handleMouseDown"
+      @mousemove="handleMouseMove"
+      @mouseup="handleMouseUp"
       :config="{
         width: 900,
         height: 700,
       }"
     >
       <v-layer ref="layer">
+        <v-line
+          v-for="line in lines"
+          :key="line"
+          :config="{
+            stroke: 'black',
+            points: (line as any).points,
+          }"
+        />
         <div v-for="(shape, index) in shapes" :key="index">
           <v-text
             v-if="shape.type === 'text'"
@@ -61,7 +72,44 @@ export default defineComponent({
   data() {
     return {
       shapes: useInputStore().shapeInput,
+      lines: [] as unknown[],
+      isDrawing: false,
     };
+  },
+  methods: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    handleMouseDown(e: any) {
+      this.isDrawing = true;
+      const pos = e.target.getStage().getPointerPosition();
+      this.lines = [...this.lines, { points: [pos.x, pos.y] }];
+    },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    handleMouseMove(e: any) {
+      // no drawing - skipping
+      if (!this.isDrawing) {
+        return;
+      }
+      const stage = e.target.getStage();
+      const point = stage.getPointerPosition();
+      const lastLine = this.lines[this.lines.length - 1] as unknown as {
+        points: number[];
+      };
+      // add point
+      lastLine.points = lastLine.points.concat([point.x, point.y]);
+
+      // replace last
+      this.lines.splice(this.lines.length - 1, 1, lastLine);
+
+      useInputStore().addShape({
+        type: "line",
+        x: point.x,
+        y: point.y,
+      });
+    },
+
+    handleMouseUp() {
+      this.isDrawing = false;
+    },
   },
 });
 </script>
