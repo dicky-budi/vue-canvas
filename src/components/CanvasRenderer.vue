@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-white">
+  <section class="canvas">
     <v-stage
       ref="stage"
       :config="{
@@ -7,12 +7,12 @@
         height: 700,
       }"
     >
-      <v-layer>
+      <v-layer ref="layer">
         <div v-for="(shape, index) in shapes" :key="index">
           <v-text
             v-if="shape.type === 'text'"
             :config="{
-              text: 'alo',
+              text: shape.content,
               fontSize: shape.fontSize,
               x: shape.x,
               y: shape.y,
@@ -33,7 +33,6 @@
             :config="{
               x: shape.x,
               y: shape.y,
-              draggable: true,
               width: shape.width,
               height: shape.height,
               fill: 'black',
@@ -51,34 +50,17 @@
           />
         </div>
       </v-layer>
-      <v-layer ref="dragLayer"></v-layer>
     </v-stage>
   </section>
 </template>
 
 <script lang="ts">
-const width = 500
-const height = 700
 import type { AllShape } from '@/types'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  data() {
-    return {
-      stageSize: {
-        width: width,
-        height: height,
-      },
-    }
-  },
   props: {
     shapes: Array<AllShape>,
   },
 })
 </script>
-
-<style scoped>
-.canvas {
-  border: 1px solid #ccc;
-}
-</style>

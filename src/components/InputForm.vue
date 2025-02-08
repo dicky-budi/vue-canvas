@@ -1,40 +1,25 @@
 <template>
-  <div class="flex flex-col px-20 max-h-[350px]">
+  <v-card class="max-h-[350px] px-6 py-8" variant="flat" color="#252525">
     <v-select
       label="Model"
       v-model="model"
       :items="['Circle', 'Rectangle', 'Text', 'Image']"
-      variant="solo"
     ></v-select>
 
     <div v-if="model !== ''" class="flex gap-2">
-      <v-text-field
-        type="number"
-        label="X"
-        v-model="x"
-        variant="solo"
-        @input="updateDrawing"
-      ></v-text-field>
-      <v-text-field
-        type="number"
-        label="Y"
-        v-model="y"
-        variant="solo"
-        @input="updateDrawing"
-      ></v-text-field>
+      <v-text-field type="number" label="X" v-model="x" @input="updateDrawing"></v-text-field>
+      <v-text-field type="number" label="Y" v-model="y" @input="updateDrawing"></v-text-field>
       <v-text-field
         v-if="model === 'Circle'"
-        label="Radius"
+        label="Radius (px)"
         type="number"
         v-model="r"
-        variant="solo"
         @input="updateDrawing"
       ></v-text-field>
       <v-text-field
         label="Font Size (px)"
         v-model="fontSize"
         type="number"
-        variant="solo"
         @input="updateDrawing"
         v-if="model === 'Text'"
       ></v-text-field>
@@ -45,44 +30,27 @@
         label="Width"
         v-model="width"
         type="number"
-        variant="solo"
         @input="updateDrawing"
       ></v-text-field>
       <v-text-field
         label="Height"
         type="number"
         v-model="height"
-        variant="solo"
         @input="updateDrawing"
       ></v-text-field>
     </div>
 
     <div v-if="model === 'Text'" class="flex gap-2">
-      <v-text-field
-        label="Content"
-        v-model="content"
-        @input="updateDrawing"
-        variant="solo"
-      ></v-text-field>
+      <v-text-field label="Content" v-model="content" @input="updateDrawing"></v-text-field>
     </div>
 
     <v-text-field
       label="URL"
       v-model="url"
-      variant="solo"
       v-if="model === 'Image'"
       @input="updateDrawing"
     ></v-text-field>
-
-    <!-- <input v-model="x" type="number" placeholder="X" />
-    <input v-model="y" type="number" placeholder="Y" />
-    <input v-model="width" type="number" placeholder="Width" />
-    <input v-model="height" type="number" placeholder="Height" />
-    <button @click="addRectangle">Add Rectangle</button>
-    <button @click="addCircle">Add Circle</button>
-    <button @click="addText">Add Text</button>
-    <button @click="addImage">Add Image</button> -->
-  </div>
+  </v-card>
 </template>
 
 <script lang="ts">

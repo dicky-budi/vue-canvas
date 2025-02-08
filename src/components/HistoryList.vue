@@ -1,7 +1,7 @@
 <template>
-  <v-card title="Input History" variant="elevated" color="#213555">
+  <v-card title="Input History" variant="elevated" color="#EAEAEA" class="history-card">
     <v-card-item>
-      <ul class="max-h-[calc(350px-2.5rem)] overflow-y-scroll text-[#D8C4B6]">
+      <ul class="max-h-[calc(350px-2.5rem)] overflow-y-scroll text-[#555555]">
         <li v-for="(shape, index) in shapes" :key="index">
           <div class="flex flex-col">
             <div class="flex justify-between items-center">

@@ -1,12 +1,11 @@
-import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
+import type { AllShape } from '@/types'
 
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
-  }
-
-  return { count, doubleCount, increment }
+export const useInputStore = defineStore('input', {
+  state: () => ({ shapeInput: [] }),
+  actions: {
+    addShape(shape: AllShape) {
+      this.shapeInput.unshift(shape as never)
+    },
+  },
 })

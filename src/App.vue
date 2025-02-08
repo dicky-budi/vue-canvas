@@ -12,6 +12,7 @@ import InputForm from './components/InputForm.vue'
 import CanvasRenderer from './components/CanvasRenderer.vue'
 import HistoryList from './components/HistoryList.vue'
 import type { AllShape } from './types'
+// import { useInputStore } from './stores/counter'
 
 export default defineComponent({
   components: {
@@ -20,12 +21,12 @@ export default defineComponent({
     HistoryList,
   },
   setup() {
+    // const shapeInput = useInputStore()
+    // shapeInput.addShape()
     const shapes = ref([])
-
     const addShape = (shape: AllShape) => {
       shapes.value.unshift(shape as never)
     }
-
     return { shapes, addShape }
   },
 })
