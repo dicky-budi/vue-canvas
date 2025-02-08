@@ -41,4 +41,4 @@ Heavily focused on canvas container, by filling 2 / 3 of the screen width and th
 
 ## Folder Structure
 
-The same with initial boilerplate when using VueJS + Vite + Pinia + TailwindCSS
+Similar with initial boilerplate when using VueJS + Vite + Pinia + TailwindCSS
