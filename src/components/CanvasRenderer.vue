@@ -1,5 +1,5 @@
 <template>
-  <section class="canvas">
+  <section class="canvas relative">
     <v-stage
       ref="stage"
       :config="{
@@ -16,7 +16,6 @@
               fontSize: shape.fontSize,
               x: shape.x,
               y: shape.y,
-              draggable: true,
             }"
           />
           <v-circle
@@ -55,12 +54,14 @@
 </template>
 
 <script lang="ts">
-import type { AllShape } from '@/types'
-import { defineComponent } from 'vue'
+import { useInputStore } from "@/stores/shape";
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  props: {
-    shapes: Array<AllShape>,
+  data() {
+    return {
+      shapes: useInputStore().shapeInput,
+    };
   },
-})
+});
 </script>

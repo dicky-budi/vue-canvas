@@ -6,7 +6,6 @@
   max-width: 100%;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: auto;
   gap: 20px;
   padding: 2rem;
 }
@@ -26,7 +25,7 @@ a,
 }
 
 .history-card {
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.25) !important;
 }
 
 @media (hover: hover) {

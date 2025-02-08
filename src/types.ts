@@ -8,10 +8,10 @@ export interface AllShape extends BasicShape {
   radius: number
   width: number
   height: number
-  fontSize: number
+  fontSize: string
   content: string
   url: string
-  image: Image
+  image: HTMLImageElement
 }
 
 export type Circle = Omit<AllShape, 'width' | 'height' | 'url' | 'image' | 'fontSize' | 'content'>
