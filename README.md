@@ -28,19 +28,17 @@ pnpm run dev
 pnpm build
 ```
 
-### Package usage
+## Package usage
 
-[Vuetify] is used for the UI components because of usage familiarity from my previous work with VueJS
-[VueKonva] is used for the canvas and it has own library integrated with vue
-[Pinia] is used for state management because its recommended by default in Vue CLI when initiating VueJS Project
-[TailwindCSS] is used for styling because of its well known css framework
+[Vuetify](https://vuetifyjs.com/en/getting-started/installation/#installation) is used for the UI components because of usage familiarity from my previous work with VueJS\
+[VueKonva](https://konvajs.org/docs/vue/index.html) is used for the canvas and it has own library integrated with vue\
+[Pinia](https://pinia.vuejs.org/introduction.html) is used for state management because its recommended by default in Vue CLI when initiating VueJS Project\
+[TailwindCSS](https://tailwindcss.com/docs/installation/using-vite) is used for styling because of its well known css framework\
 
-### Design layout
+## Design layout
 
-1. focused on canvas container, by filling 2 / 3 of the screen width
-2. the rest of 1/3 screen width is used for the data input and history input
-3. allowing free drawing on the canvas by dragging the mouse inside the canvas
+Heavily focused on canvas container, by filling 2 / 3 of the screen width and the rest of 1/3 screen width is used for the data input and history input
 
-### Folder Structure
+## Folder Structure
 
 The same with initial boilerplate when using VueJS + Vite + Pinia + TailwindCSS
