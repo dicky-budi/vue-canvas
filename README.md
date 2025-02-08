@@ -28,21 +28,19 @@ pnpm run dev
 pnpm build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-pnpm test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm lint
-```
-
 ### Package usage
 
-[Vuetify] is used for the UI components because of usage familiarity from my previous work
-[VueKonva] is used for the canvas and its built-in integration with vue
-[Pinia] is used for state management because of its simplicity
-[TailwindCSS] is used for styling because it's a well known css framework
+[Vuetify] is used for the UI components because of usage familiarity from my previous work with VueJS
+[VueKonva] is used for the canvas and it has own library integrated with vue
+[Pinia] is used for state management because its recommended by default in Vue CLI when initiating VueJS Project
+[TailwindCSS] is used for styling because of its well known css framework
+
+### Design layout
+
+1. focused on canvas container, by filling 2 / 3 of the screen width
+2. the rest of 1/3 screen width is used for the data input and history input
+3. allowing free drawing on the canvas by dragging the mouse inside the canvas
+
+### Folder Structure
+
+The same with initial boilerplate when using VueJS + Vite + Pinia + TailwindCSS
