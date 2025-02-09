@@ -42,3 +42,11 @@ Heavily focused on canvas container, by filling 2 / 3 of the screen width and th
 ## Folder Structure
 
 Similar with initial boilerplate when using VueJS + Vite + Pinia + TailwindCSS
+
+## How To Use
+
+1. Install dependencies using pnpm install
+2. Run development server using pnpm run dev
+3. Open localhost on web browser
+4. User can then start drawing either by freely drawing on the canvas or by selecting a shape and modifying its properties
+5. User also able to see the changes on the canvas and the history of the changes in real time
