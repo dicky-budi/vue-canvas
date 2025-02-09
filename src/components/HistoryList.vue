@@ -3,12 +3,10 @@
     title="Input History"
     variant="elevated"
     color="#EAEAEA"
-    class="history-card max-h-[calc(350px-2.5rem)]"
+    class="history-card grow max-h-[300px]"
   >
     <v-card-item>
-      <ul
-        class="max-h-[calc(350px-2.5rem)] overflow-y-scroll text-[#555555] list-none"
-      >
+      <ul class="overflow-y-scroll text-[#555555] list-none">
         <li v-for="(shape, index) in shapes" :key="index">
           <div class="flex flex-col">
             <div class="flex justify-between items-center">

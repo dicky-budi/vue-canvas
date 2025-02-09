@@ -5,10 +5,7 @@
       @mousedown="handleMouseDown"
       @mousemove="handleMouseMove"
       @mouseup="handleMouseUp"
-      :config="{
-        width: 900,
-        height: 700,
-      }"
+      :config="canvasConfig"
     >
       <v-layer ref="layer">
         <v-line
@@ -74,7 +71,14 @@ export default defineComponent({
       shapes: useInputStore().shapeInput,
       lines: [] as unknown[],
       isDrawing: false,
+      canvasConfig: {
+        width: 900,
+        height: 700,
+      },
     };
+  },
+  mounted() {
+    this.canvasConfig.height = 0.9 * window.innerHeight;
   },
   methods: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

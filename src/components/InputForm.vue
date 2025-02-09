@@ -1,9 +1,5 @@
 <template>
-  <v-card
-    class="max-h-[350px] min-h-[350px] px-6 py-8"
-    variant="elevated"
-    color="#252525"
-  >
+  <v-card class="grow px-6 py-8" variant="elevated" color="#252525">
     <v-select
       label="Model"
       v-model="model"
